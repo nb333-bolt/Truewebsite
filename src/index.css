@@ -1,0 +1,238 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* TRU Community Fund — Apple-style design system
+   Brand colors preserved from source: deep navy #00266f, vivid green, white
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 30% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 30% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 30% 12%;
+
+    /* TRU navy */
+    --primary: 222 100% 22%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 222 90% 38%;
+
+    --secondary: 220 20% 96%;
+    --secondary-foreground: 222 100% 22%;
+
+    --muted: 220 18% 96%;
+    --muted-foreground: 220 10% 40%;
+
+    /* TRU green accent — electric */
+    --accent: 142 90% 45%;
+    --accent-foreground: 222 100% 12%;
+    --accent-glow: 145 100% 55%;
+    --electric: 145 100% 60%;
+    --electric-soft: 150 100% 70%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 14% 90%;
+    --input: 220 14% 90%;
+    --ring: 222 100% 22%;
+
+    --radius: 1.25rem;
+
+    /* Surfaces — Apple-style layered tones */
+    --surface-elevated: 0 0% 100%;
+    --surface-tinted: 220 30% 98%;
+    --surface-dark: 222 45% 8%;
+    --surface-dark-elevated: 222 40% 12%;
+
+    /* Gradients */
+    --gradient-hero: radial-gradient(ellipse 55% 45% at 20% 15%, hsl(170 100% 45% / 0.28), transparent 60%),
+                      radial-gradient(ellipse 60% 50% at 85% 25%, hsl(265 85% 55% / 0.32), transparent 60%),
+                      radial-gradient(ellipse 70% 50% at 50% 0%, hsl(145 100% 50% / 0.22), transparent 65%),
+                      radial-gradient(ellipse 90% 70% at 50% 110%, hsl(200 95% 40% / 0.55), transparent 60%),
+                      linear-gradient(160deg, hsl(222 85% 14%) 0%, hsl(230 70% 9%) 45%, hsl(215 80% 11%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(145 100% 55%) 0%, hsl(160 100% 45%) 100%);
+    --gradient-electric: linear-gradient(90deg, hsl(145 100% 60%) 0%, hsl(170 100% 55%) 50%, hsl(145 100% 60%) 100%);
+    --gradient-shine: linear-gradient(135deg, hsl(0 0% 100% / 0.12) 0%, hsl(0 0% 100% / 0) 60%);
+    --gradient-card: linear-gradient(180deg, hsl(220 30% 99%) 0%, hsl(220 25% 96%) 100%);
+
+    /* Shadows — soft, Apple-like */
+    --shadow-soft: 0 1px 2px hsl(222 30% 12% / 0.04), 0 8px 24px hsl(222 30% 12% / 0.06);
+    --shadow-elevated: 0 2px 4px hsl(222 30% 12% / 0.04), 0 24px 60px hsl(222 30% 12% / 0.12);
+    --shadow-glow: 0 0 60px hsl(222 90% 38% / 0.35);
+    --shadow-accent-glow: 0 0 50px hsl(145 100% 55% / 0.55);
+    --shadow-electric: 0 0 30px hsl(145 100% 60% / 0.7), 0 0 80px hsl(145 100% 50% / 0.35);
+
+    /* Motion */
+    --ease-apple: cubic-bezier(0.32, 0.72, 0, 1);
+    --transition-smooth: all 0.6s var(--ease-apple);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.2);
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", system-ui, sans-serif;
+    letter-spacing: -0.035em;
+  }
+
+  .font-text {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", system-ui, sans-serif;
+    letter-spacing: -0.011em;
+  }
+
+  .glass {
+    background: hsl(0 0% 100% / 0.7);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+  }
+
+  .glass-dark {
+    background: hsl(222 45% 8% / 0.65);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+  }
+
+  .text-gradient-primary {
+    background: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(220 30% 75%) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-gradient-accent {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .bg-hero {
+    background: var(--gradient-hero);
+  }
+
+  .bg-card-soft {
+    background: var(--gradient-card);
+  }
+
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .shadow-elevated { box-shadow: var(--shadow-elevated); }
+  .shadow-glow { box-shadow: var(--shadow-glow); }
+  .shadow-accent-glow { box-shadow: var(--shadow-accent-glow); }
+  .shadow-electric { box-shadow: var(--shadow-electric); }
+
+  .text-electric { color: hsl(var(--electric)); }
+  .bg-electric { background-color: hsl(var(--electric)); }
+  .text-gradient-electric {
+    background: var(--gradient-electric);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-shift 4s ease-in-out infinite;
+  }
+
+  .ease-apple { transition-timing-function: var(--ease-apple); }
+}
+
+/* Marquee animation for ticker */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+/* Subtle float */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Shimmer */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, hsl(0 0% 100% / 0.15), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+}
+
+/* Gradient shift */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Electric pulse */
+@keyframes electric-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 hsl(145 100% 60% / 0.7), 0 0 30px hsl(145 100% 55% / 0.5);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 0 12px hsl(145 100% 60% / 0), 0 0 50px hsl(145 100% 55% / 0.8);
+    transform: scale(1.15);
+  }
+}
+.animate-electric-pulse { animation: electric-pulse 2s ease-out infinite; }
+
+/* Dash flow for animated rail line */
+@keyframes dash-flow {
+  to { stroke-dashoffset: -200; }
+}
+.animate-dash-flow { animation: dash-flow 3s linear infinite; }
+
+/* Wave sweep across text — gradient flows left → right */
+@keyframes text-wave-sweep {
+  0%   { background-position: -150% 50%; }
+  100% { background-position: 250% 50%; }
+}
+.text-wave {
+  background-image: linear-gradient(
+    100deg,
+    hsl(0 0% 100%) 0%,
+    hsl(0 0% 100%) 35%,
+    hsl(var(--electric)) 50%,
+    hsl(0 0% 100%) 65%,
+    hsl(0 0% 100%) 100%
+  );
+  background-size: 250% 100%;
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: text-wave-sweep 4.5s linear infinite;
+}
